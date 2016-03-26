@@ -1,6 +1,12 @@
+/**
+* @author: Juan Roa
+* License: MIT
+*/
+
 public class ListaEnlazada {
 
   Nodo primero;
+  java.util.Scanner sc = new java.util.Scanner(System.in);
 
   public ListaEnlazada() {
     primero = null;
@@ -66,12 +72,38 @@ public class ListaEnlazada {
     }
   }
 
-  public void menu(int a) {
+  public void menu() {
 
-    System.out.println("1 para insertar dato a la lista: ");
-    System.out.println("2 para insertar dato a la lista: ");
-    System.out.println("3 para insertar dato a la lista: ");
-    System.out.println("4 para insertar dato a la lista: ");
+    int choice;
+
+    do {
+      String text = "|               Menú              |\n| Ingrese una opción:             |\n";
+      text += "| 1 para insertar dato a la lista |\n";
+      text += "| 2 para mostrar lista            |\n";
+      text += "| 3 ¿Lista vacía?                 |\n";
+      text += "| 4 para borrar el primer dato    |\n";
+      System.out.println(text);
+      int a = sc.nextInt();
+
+      if (a == 1) {
+        System.out.println(" Ingrese el dato deseado: ");
+        int i = sc.nextInt();
+        insertarDato(i);
+      }else if (a == 2) {
+        System.out.println(listar());
+      }else if (a == 3) {
+        System.out.println(vacia());
+      }else if (a == 4) {
+        System.out.println(borrarPrimero());
+      }else{
+        break;
+      }
+
+      System.out.println("¿Desea continuar? \nteclee 1 para continuar...");
+      choice = sc.nextInt();
+
+    }while (choice == 1);
+
   }
 
 }
