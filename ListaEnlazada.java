@@ -42,7 +42,15 @@ public class ListaEnlazada {
   }
 
   public void borrarPrimero () {
-    primero = primero.siguiente;
+    //primero = primero.siguiente;
+
+    if (vacia()) {
+      System.out.println("¡ No se puede borrar un elemento en una lista vacía !");
+    }else{
+      primero = primero.siguiente;
+      System.out.println("¡ Primer nodo borrado !");
+    }
+
   }
 
   public void borrarUltimo() {
@@ -94,7 +102,7 @@ public class ListaEnlazada {
       }else if (a == 3) {
         System.out.println(vacia());
       }else if (a == 4) {
-        System.out.println(borrarPrimero());
+        borrarPrimero();
       }else{
         break;
       }
