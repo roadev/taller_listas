@@ -3,10 +3,9 @@
 * License: MIT
 */
 
-public class ListaEnlazada {
+public class ListaEnlazada{
 
   Nodo primero;
-  java.util.Scanner sc = new java.util.Scanner(System.in);
 
   public ListaEnlazada() {
     primero = null;
@@ -22,6 +21,41 @@ public class ListaEnlazada {
 
   }
 
+  public ListaEnlazada selectMenores(int q) {
+    Nodo nodo_copia=primero;
+    ListaEnlazada list = new ListaEnlazada();
+
+    while(nodo_copia.siguiente != null){
+      if(nodo_copia.dato < q){
+        list.insertarDato(nodo_copia.dato);
+      }
+      nodo_copia=nodo_copia.siguiente;
+    }
+    if(nodo_copia.dato < q){
+      list.insertarDato(nodo_copia.dato);
+    }
+    return list;
+  }
+
+  public ListaEnlazada selectMayores(int q) {
+    Nodo nodo_copia=primero;
+    ListaEnlazada list = new ListaEnlazada();
+
+    while(nodo_copia.siguiente != null){
+      if(nodo_copia.dato >= q){
+        list.insertarDato(nodo_copia.dato);
+      }
+      nodo_copia=nodo_copia.siguiente;
+    }
+    if(nodo_copia.dato >= q){
+      list.insertarDato(nodo_copia.dato);
+    }
+
+    return list;
+  }
+
+  
+
   public void insertarDato(int dato) {
 
     Nodo temporal = new Nodo(dato);
@@ -34,21 +68,23 @@ public class ListaEnlazada {
     String info = "";
     Nodo aux = primero;
 
-    while (aux != null) {
-      info += "{"+aux.dato+"}";
-      aux = aux.siguiente;
+    if (vacia()){
+      info="null";
+    }else{
+      while (aux != null) {
+        info += "{"+aux.dato+"}";
+        aux = aux.siguiente;
+      }
     }
     return info;
   }
 
   public void borrarPrimero () {
-    //primero = primero.siguiente;
 
     if (vacia()) {
       System.out.println("¡ No se puede borrar un elemento en una lista vacía !");
     }else{
       primero = primero.siguiente;
-      System.out.println("¡ Primer nodo borrado !");
     }
 
   }
@@ -57,61 +93,54 @@ public class ListaEnlazada {
     Nodo anterior = primero;
     Nodo actual = primero;
 
-    while (actual.siguiente != null) {
+    while (actual.siguiente != null){
       anterior = actual;
       actual = actual.siguiente;
     }
-    anterior.siguiente = null;
+    anterior.siguiente = actual.siguiente;
   }
 
-  public void buscarPosicion (int pos) {
+  public int buscarPosicion (int pos) {
+
     Nodo anterior = primero;
     Nodo actual = primero;
     int k = 0;
+    int resultado = 0;
 
     if (pos > 0) {
-      while (k != pos && actual.siguiente != null) {
-        anterior = actual;
-        actual = actual.siguiente;
-        k++;
-        System.out.print("k" + k);
+
+      if (vacia()) {
+        System.out.println("¡ No se puede buscar un elemento en una lista vacía !");
+      }else{
+        while (k < pos && actual.siguiente != null) {
+            anterior = actual;
+            actual = actual.siguiente;
+            k++;
+            resultado = anterior.dato;
+        }
+        k+=1;
+        if (k == pos) {
+          resultado = actual.dato;
+        }
       }
-      anterior.siguiente = actual.siguiente;
+    }else{
+      System.out.println("¡ La posición debe ser un entero positivo !");
     }
+    return resultado;
   }
 
-  public void menu() {
+  public int calcularTamano() {
+    Nodo aux = primero;
+    int size = 0;
 
-    int choice;
-
-    do {
-      String text = "|               Menú              |\n| Ingrese una opción:             |\n";
-      text += "| 1 para insertar dato a la lista |\n";
-      text += "| 2 para mostrar lista            |\n";
-      text += "| 3 ¿Lista vacía?                 |\n";
-      text += "| 4 para borrar el primer dato    |\n";
-      System.out.println(text);
-      int a = sc.nextInt();
-
-      if (a == 1) {
-        System.out.println(" Ingrese el dato deseado: ");
-        int i = sc.nextInt();
-        insertarDato(i);
-      }else if (a == 2) {
-        System.out.println(listar());
-      }else if (a == 3) {
-        System.out.println(vacia());
-      }else if (a == 4) {
-        borrarPrimero();
-      }else{
-        break;
+    if (vacia() == false) {
+      while (aux.siguiente != null) {
+        size++;
+        aux=aux.siguiente;
       }
-
-      System.out.println("¿Desea continuar? \nteclee 1 para continuar...");
-      choice = sc.nextInt();
-
-    }while (choice == 1);
-
+      size++;
+    }
+    return size;
   }
 
 }

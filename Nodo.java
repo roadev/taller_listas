@@ -1,4 +1,9 @@
-public class Nodo {
+/**
+* @author: Juan Roa
+* License: MIT
+*/
+
+public class Nodo{
   int dato;
   Nodo siguiente;
 
@@ -7,4 +12,5 @@ public class Nodo {
     //inicialización de dato (atributo)
     dato = inf;
   }
+
 }
