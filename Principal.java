@@ -46,7 +46,7 @@ public class Principal {
         nueva_lista = lista2;
       }
     }
-    
+
     return nueva_lista;
   }
 
@@ -62,6 +62,7 @@ public class Principal {
       text += "| 7 para calcular el tamaño de la lista |\n";
       text += "| 8 para fraccionar la lista            |\n";
       text += "| 9 concatena un par de listas          |\n";
+      text += "| 10 eliminar dado pos                  |\n";
       System.out.println(text);
       int a = sc.nextInt();
 
@@ -97,6 +98,11 @@ public class Principal {
         }while (choice2!=0);
         ListaEnlazada aux = concatenarListas();
         System.out.println("Listar concatenados = "+aux.listar());
+      }else if (a == 10) {
+        System.out.println("Ingrese pos a eliminar: ");
+        int pos = sc.nextInt();
+        listaPpal.eliminarWhitPos(pos);
+        System.out.println("Lista Principal:\n" + listaPpal.listar());
       }
   }
 

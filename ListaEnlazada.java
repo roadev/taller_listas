@@ -54,7 +54,28 @@ public class ListaEnlazada{
     return list;
   }
 
-  
+  public void eliminarWhitPos(int pos) {
+    Nodo anterior=primero;
+    Nodo actual=primero;
+    int i = 1;
+
+    if( (pos > 0) && (pos < calcularTamano()) ){
+
+      //if ((calcularTamano()==1) && (pos==1)) {
+        //borrarPrimero();
+      //}
+
+      while(i<=pos){
+        anterior = actual;
+        actual = actual.siguiente;
+        i+=1;
+      }
+      actual = actual.siguiente;
+      anterior.siguiente = actual;
+    } else {
+      System.out.println("Fuera de Rango Válido");
+    }
+  }
 
   public void insertarDato(int dato) {
 
