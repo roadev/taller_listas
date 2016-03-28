@@ -59,19 +59,27 @@ public class ListaEnlazada{
     Nodo actual=primero;
     int i = 1;
 
-    if( (pos > 0) && (pos < calcularTamano()) ){
+    /*
+    * El único nodo que no puede ser eliminado en esta implementación es el primero, a menos
+    * que se tenga en cuenta esta condición de manera directa.
+    */
 
-      //if ((calcularTamano()==1) && (pos==1)) {
-        //borrarPrimero();
-      //}
+    if( (pos > 0) && (pos <= calcularTamano()) ){
 
-      while(i<=pos){
+      while(i<pos){
         anterior = actual;
         actual = actual.siguiente;
-        i+=1;
+        i++;
       }
       actual = actual.siguiente;
       anterior.siguiente = actual;
+
+    /* Condición para eliminar el primer nodo (si pos == 1)
+    *  if (pos==1) {
+    *    borrarPrimero();
+    *  }
+    */
+
     } else {
       System.out.println("Fuera de Rango Válido");
     }
