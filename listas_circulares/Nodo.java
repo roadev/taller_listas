@@ -4,8 +4,8 @@
  */
 public class Nodo {
 
-    int dato;
-    Nodo siguiente;
+  int dato;
+  Nodo siguiente;
 
 
 }
