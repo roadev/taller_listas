@@ -22,33 +22,33 @@ public class ListaEnlazada{
   }
 
   public ListaEnlazada selectMenores(int q) {
-    Nodo nodo_copia=primero;
+    Nodo nodoCopia = primero;
     ListaEnlazada list = new ListaEnlazada();
 
-    while(nodo_copia.siguiente != null){
-      if(nodo_copia.dato < q){
-        list.insertarDato(nodo_copia.dato);
+    while(nodoCopia.siguiente != null){
+      if(nodoCopia.dato < q){
+        list.insertarDato(nodoCopia.dato);
       }
-      nodo_copia=nodo_copia.siguiente;
+      nodoCopia = nodoCopia.siguiente;
     }
-    if(nodo_copia.dato < q){
-      list.insertarDato(nodo_copia.dato);
+    if(nodoCopia.dato < q){
+      list.insertarDato(nodoCopia.dato);
     }
     return list;
   }
 
   public ListaEnlazada selectMayores(int q) {
-    Nodo nodo_copia=primero;
+    Nodo nodoCopia = primero;
     ListaEnlazada list = new ListaEnlazada();
 
-    while(nodo_copia.siguiente != null){
-      if(nodo_copia.dato >= q){
-        list.insertarDato(nodo_copia.dato);
+    while(nodoCopia.siguiente != null){
+      if(nodoCopia.dato >= q){
+        list.insertarDato(nodoCopia.dato);
       }
-      nodo_copia=nodo_copia.siguiente;
+      nodoCopia = nodoCopia.siguiente;
     }
-    if(nodo_copia.dato >= q){
-      list.insertarDato(nodo_copia.dato);
+    if(nodoCopia.dato >= q){
+      list.insertarDato(nodoCopia.dato);
     }
 
     return list;
