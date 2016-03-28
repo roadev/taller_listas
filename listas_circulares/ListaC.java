@@ -12,6 +12,16 @@ public class ListaC {
     ultimo =null;
   }
 
+  public boolean vacia() {
+
+    if ((primero == null) && (ultimo == null)) {
+      return true;
+    }else{
+      return false;
+    }
+
+  }
+
   public void insertar(int dato) {
     Nodo temp = new Nodo();
     temp.dato = dato;
@@ -35,6 +45,22 @@ public class ListaC {
       System.out.println(" " + actual.dato);
       actual= actual.siguiente;
     }while(actual != primero);
+  }
+
+  public int operar(int x) {
+    Nodo anterior=primero;
+    Nodo actual=primero;
+    int resultado = 0;
+
+    System.out.println("x = " + x);
+
+    do{
+      resultado += (x*actual.dato);
+      anterior = actual;
+      actual = actual.siguiente;
+    }while (actual != primero);
+
+    return resultado;
   }
 
 }

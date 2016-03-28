@@ -16,7 +16,9 @@ public class Principal2 {
 
     String text = "|                  Menú                 |\n| Ingrese una opción:                   |\n";
     text += "| 1 para insertar dato a la lista       |\n";
-    text += "| 2 para mostrar lista                  |\n";
+    text += "| 2 para mostrar lista / polinomio      |\n";
+    text += "| 3 para operar polinomio               |\n";
+    text += "| 4 para saber si está vacía            |\n";
     System.out.println(text);
     int a = sc.nextInt();
 
@@ -27,6 +29,12 @@ public class Principal2 {
     }else if (a == 2) {      
       System.out.println("Lista Circular:");
       listaPpal.imprimir();
+    }else if (a == 3) {      
+      System.out.println("Ingrese el dato para operar el polinomio: ");
+      int num = sc.nextInt();
+      System.out.println("y = " + listaPpal.operar(num));
+    }else if (a == 4) {      
+      System.out.println("vacía? : " + listaPpal.vacia());
     }
   }
 
