@@ -24,8 +24,9 @@ public class Principal2 {
       System.out.println(" Ingrese el dato deseado: ");
       int i = sc.nextInt();
       listaPpal.insertar(i);
-    }else if (a == 2) {
-      System.out.println(listaPpal.imprimir());
+    }else if (a == 2) {      
+      System.out.println("Lista Circular:");
+      listaPpal.imprimir();
     }
   }
 

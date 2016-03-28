@@ -21,6 +21,8 @@ public class Principal {
     sc.insertar(78);
     sc.imprimir();
 
+    Principal2  obj2 = new  Principal2();
+    obj2.mostrarMenu("");
   }
 
 }
