@@ -22,39 +22,68 @@ public class ListaEnlazada{
   }
 
   public ListaEnlazada selectMenores(int q) {
-    Nodo nodo_copia=primero;
+    Nodo nodoCopia = primero;
     ListaEnlazada list = new ListaEnlazada();
 
-    while(nodo_copia.siguiente != null){
-      if(nodo_copia.dato < q){
-        list.insertarDato(nodo_copia.dato);
+    while(nodoCopia.siguiente != null){
+      if(nodoCopia.dato < q){
+        list.insertarDato(nodoCopia.dato);
       }
-      nodo_copia=nodo_copia.siguiente;
+      nodoCopia = nodoCopia.siguiente;
     }
-    if(nodo_copia.dato < q){
-      list.insertarDato(nodo_copia.dato);
+    if(nodoCopia.dato < q){
+      list.insertarDato(nodoCopia.dato);
     }
     return list;
   }
 
   public ListaEnlazada selectMayores(int q) {
-    Nodo nodo_copia=primero;
+    Nodo nodoCopia = primero;
     ListaEnlazada list = new ListaEnlazada();
 
-    while(nodo_copia.siguiente != null){
-      if(nodo_copia.dato >= q){
-        list.insertarDato(nodo_copia.dato);
+    while(nodoCopia.siguiente != null){
+      if(nodoCopia.dato >= q){
+        list.insertarDato(nodoCopia.dato);
       }
-      nodo_copia=nodo_copia.siguiente;
+      nodoCopia = nodoCopia.siguiente;
     }
-    if(nodo_copia.dato >= q){
-      list.insertarDato(nodo_copia.dato);
+    if(nodoCopia.dato >= q){
+      list.insertarDato(nodoCopia.dato);
     }
 
     return list;
   }
 
-  
+  public void eliminarWhitPos(int pos) {
+    Nodo anterior=primero;
+    Nodo actual=primero;
+    int i = 1;
+
+    /*
+    * El único nodo que no puede ser eliminado en esta implementación es el primero, a menos
+    * que se tenga en cuenta esta condición de manera directa.
+    */
+
+    if( (pos > 0) && (pos <= calcularTamano()) ){
+
+      while(i<pos){
+        anterior = actual;
+        actual = actual.siguiente;
+        i++;
+      }
+      actual = actual.siguiente;
+      anterior.siguiente = actual;
+
+    /* Condición para eliminar el primer nodo (si pos == 1)
+    *  if (pos==1) {
+    *    borrarPrimero();
+    *  }
+    */
+
+    } else {
+      System.out.println("Fuera de Rango Válido");
+    }
+  }
 
   public void insertarDato(int dato) {
 
