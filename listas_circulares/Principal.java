@@ -1,7 +1,7 @@
 
 /**
  *
- * @author James Jaramillo
+ * @author Juan Roa
  */
 import java.util.*;
 public class Principal {

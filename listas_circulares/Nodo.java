@@ -1,8 +1,6 @@
-
-
 /**
  *
- * @author James Jaramillo
+ * @author Juan Roa
  */
 public class Nodo {
 
