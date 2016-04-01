@@ -6,10 +6,22 @@ public class ListaC {
 
   Nodo primero;
   Nodo ultimo;
+  int grado;
 
   public ListaC() {
-    primero= null;
-    ultimo =null;
+    primero = null;
+    ultimo = null;
+    grado = 0;
+  }
+
+  public void definirGrado(int i) {
+
+    if (grado == 0) {
+      grado = i;
+    } else {
+      System.out.println("No se puede redefinir el grado del polinomio");
+    }
+
   }
 
   public boolean vacia() {
@@ -25,26 +37,33 @@ public class ListaC {
   public void insertar(int dato) {
     Nodo temp = new Nodo();
     temp.dato = dato;
-    if (primero ==null)
-    {
+
+    if (primero ==null) { // como mínimo el polinomio es una constante
       primero = temp;
       ultimo = primero;
       primero.siguiente = ultimo;
-    } else
-    {
+    } else {
       ultimo.siguiente = temp;
       temp.siguiente =primero;
       ultimo=temp;
     }
   }
 
-  public void imprimir () {
+  public String imprimir () {
     Nodo actual = new Nodo();
     actual = primero;
-    do{
-      System.out.println(" " + actual.dato);
-      actual= actual.siguiente;
-    }while(actual != primero);
+    String msj = "y =";
+
+    if (!vacia()) {
+      do{
+        msj += " " + actual.dato;
+        actual= actual.siguiente;
+      }while(actual != primero);
+    } else {
+      msj = "null";
+    }
+
+    return msj;
   }
 
   public int operar(int x) {
@@ -61,6 +80,21 @@ public class ListaC {
     }while (actual != primero);
 
     return resultado;
+  }
+
+  public int calcularTamano() {
+    Nodo anterior=primero;
+    Nodo actual=primero;
+    int size = 0;
+
+    if (!vacia()) {
+      do {
+        size++;
+        anterior = actual;
+        actual = actual.siguiente;
+      } while (actual != primero);
+    }
+    return size;
   }
 
 }
