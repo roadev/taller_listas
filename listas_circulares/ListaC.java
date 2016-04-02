@@ -53,11 +53,23 @@ public class ListaC {
     Nodo actual = new Nodo();
     actual = primero;
     String msj = "y =";
+    int cop_grado = grado;
 
     if (!vacia()) {
       do{
-        msj += " " + actual.dato;
-        actual= actual.siguiente;
+        if (cop_grado > 1) {
+          msj += " " + actual.dato + "x^" + cop_grado;
+          actual= actual.siguiente;
+          cop_grado -= 1;
+        } else if (cop_grado == 1) {
+          msj += " " + actual.dato + "x";
+          actual= actual.siguiente;
+          cop_grado -= 1;
+        } else {
+          msj += " " + actual.dato;
+          actual= actual.siguiente;
+          cop_grado -= 1;
+        }
       }while(actual != primero);
     } else {
       msj = "null";
@@ -70,13 +82,15 @@ public class ListaC {
     Nodo anterior=primero;
     Nodo actual=primero;
     int resultado = 0;
+    int cop_grado = grado;
 
     System.out.println("x = " + x);
 
     do{
-      resultado += (x*actual.dato);
+      resultado += (actual.dato*(Math.pow(x, cop_grado)));
       anterior = actual;
       actual = actual.siguiente;
+      cop_grado -= 1;
     }while (actual != primero);
 
     return resultado;
