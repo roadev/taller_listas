@@ -196,7 +196,8 @@ public class Vista extends JFrame implements ActionListener{
       JOptionPane.showMessageDialog(null, "10. xyz");
     }
     if(e.getSource()==botonesPilas.get(0)){
-      int x = Integer.parseInt(JOptionPane.showMessageDialog(null, "Ingrese el número a apilar Apilar"));
+      int x = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número a apilar Apilar"));
+      //int x = Integer.parseInt(JOptionPane.showMessageDialog(null, "Ingrese el número a apilar Apilar"));
       pila.apilar(x);
     }
     if(e.getSource()==botonesPilas.get(1)){

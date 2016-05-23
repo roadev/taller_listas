@@ -56,7 +56,7 @@ public class Pila {
 		}
 	}
 
-	public void mostrar () {
+	public String mostrar () {
 
 		Nodo temp = inicio;
 		String con = "El contenido de la pila es: \n";
@@ -64,7 +64,7 @@ public class Pila {
 			con += temp.dato + "\n";
 			temp = temp.siguiente;
 		}
-		System.out.println (con);
+		return con;
 	}
 
 }

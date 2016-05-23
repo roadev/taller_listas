@@ -64,7 +64,7 @@ public class Pila {
 			con += temp.nombre + "\n";
 			temp = temp.sgte;
 		}
-		System.out.println (con);
+	System.out.println(con);
 	}
 
 }
