@@ -140,10 +140,10 @@ public class Vista extends JFrame implements ActionListener{
 
   public void actionPerformed(ActionEvent e) {
     if(e.getSource()==botonesCirculares.get(0)){
-      JOptionPane.showMessageDialog(null, "1 xyz");
+      JOptionPane.showMessageDialog(null, "Vacía?", listaC.vacia(), JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesCirculares.get(1)){
-      JOptionPane.showMessageDialog(null, "2 xyz");
+      JOptionPane.showMessageDialog(null, "Tamaño Lista", listaC.calcularTamano(), JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesCirculares.get(2)){
       JOptionPane.showMessageDialog(null, "3 xyz");
