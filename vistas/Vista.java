@@ -188,22 +188,31 @@ public class Vista extends JFrame implements ActionListener{
       JOptionPane.showMessageDialog(null, "10. xyz");
     }
     if(e.getSource()==botonesPilas.get(0)){
-      JOptionPane.showMessageDialog(null, "1 xyz");
+      int x = Integer.parseInt(JOptionPane.showMessageDialog(null, "Ingrese el número a apilar Apilar"));
+      pila.apilar(x);
     }
     if(e.getSource()==botonesPilas.get(1)){
-      JOptionPane.showMessageDialog(null, "2 xyz");
+      JOptionPane.showMessageDialog(null, pila.mostrar());
     }
     if(e.getSource()==botonesPilas.get(2)){
-      JOptionPane.showMessageDialog(null, "3 xyz");
+      pila.eliminar();
+      JOptionPane.showMessageDialog(null, "Pila eliminada :(");
+
     }
     if(e.getSource()==botonesPilas.get(3)){
-      JOptionPane.showMessageDialog(null, "4 xyz");
+      JOptionPane.showMessageDialog(null, "La cima de la pila es: \n" + pila.cima());
     }
     if(e.getSource()==botonesPilas.get(4)){
-      JOptionPane.showMessageDialog(null, "5 xyz");
+      if(pila.vacia() == false) {
+        JOptionPane.showMessageDialog(null, "No está vacía");
+      }else {
+        JOptionPane.showMessageDialog(null, "Está vacía");
+      }
+      
     }
     if(e.getSource()==botonesPilas.get(5)){
-      JOptionPane.showMessageDialog(null, "6 xyz");
+      pila.desapilar();
+      JOptionPane.showMessageDialog(null, "Has desapilado");
     }
   }
 }
