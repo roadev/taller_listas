@@ -19,7 +19,7 @@ public class Principal {
     sc.insertar(16);
     sc.insertar(35);
     sc.insertar(78);
-    sc.imprimir();
+    System.out.println(sc.imprimir());
 
     Principal2  obj2 = new  Principal2();
     obj2.mostrarMenu("");
