@@ -77,7 +77,7 @@ public class Vista extends JFrame implements ActionListener{
     panelCirculares = new JPanel(new BorderLayout());
     panelCirculares.setBorder(BorderFactory.createTitledBorder("Ejercicio Listas Circulares"));
     panelCirculares.setVisible(true);
-    panelCirculares.add(new JLabel("\tMenú 1. Listas Circulares"), BorderLayout.NORTH);
+    panelCirculares.add(new JLabel("      Listas Circulares"), BorderLayout.NORTH);
     panelCirculares.add(grillaCirculares, BorderLayout.CENTER);
 
     //Ejercicio Enlazadas
@@ -106,7 +106,7 @@ public class Vista extends JFrame implements ActionListener{
     panelEnlazadas = new JPanel(new BorderLayout());
     panelEnlazadas.setBorder(BorderFactory.createTitledBorder("Ejercicio Listas Enlazadas"));
     panelEnlazadas.setVisible(true);
-    panelEnlazadas.add(new JLabel("\tMenú 2. Listas Enlazadas"), BorderLayout.NORTH);
+    panelEnlazadas.add(new JLabel("      Listas Enlazadas"), BorderLayout.NORTH);
     panelEnlazadas.add(grillaEnlazadas, BorderLayout.CENTER);
 
     //Ejercicio Pilas
@@ -127,12 +127,12 @@ public class Vista extends JFrame implements ActionListener{
     panelPilas = new JPanel(new BorderLayout());
     panelPilas.setBorder(BorderFactory.createTitledBorder("Ejercicio Pilas"));
     panelPilas.setVisible(true);
-    panelPilas.add(new JLabel("\tMenú 3. Pilas"), BorderLayout.NORTH);
+    panelPilas.add(new JLabel("      Pilas"), BorderLayout.NORTH);
     panelPilas.add(grillaPilas, BorderLayout.CENTER);
 
     //General
     tabs.addTab("Listas Circulares", panelCirculares);
-    tabs.addTab("Listas Enlazadas", panelEnlazadas);
+    //tabs.addTab("Listas Enlazadas", panelEnlazadas);
     tabs.addTab("Pilas", panelPilas);
 
     contenedor.add(tabs,BorderLayout.CENTER);
@@ -163,7 +163,14 @@ public class Vista extends JFrame implements ActionListener{
       JOptionPane.showMessageDialog(null, "Polinomio: "+ listaC.imprimir());
     }
     if(e.getSource()==botonesCirculares.get(5)){
-      JOptionPane.showMessageDialog(null, "6 xyz");
+
+      int num = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el dato para operar el polinomio:"));
+      if (!listaC.vacia()) {
+        JOptionPane.showMessageDialog(null, "y = " + listaC.operar(num));
+      } else {
+        JOptionPane.showMessageDialog(null,"No se puede operar una lista vacía");
+      }
+      
     }
     if(e.getSource()==botonesEnlazadas.get(0)){
       JOptionPane.showMessageDialog(null, "1 xyz");
