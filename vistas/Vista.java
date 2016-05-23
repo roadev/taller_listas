@@ -34,7 +34,7 @@ public class Vista extends JFrame implements ActionListener{
 
     graphics();
     organize();
-    this.setSize(400,400);
+    this.setSize(600,400);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setVisible(true);
     this.setTitle("Vistas");
@@ -61,17 +61,17 @@ public class Vista extends JFrame implements ActionListener{
 
     //Ejercicio Cirulares
     grillaCirculares = new JPanel(new GridLayout(6,2));
-    grillaCirculares.add(new JLabel("1. "));
+    grillaCirculares.add(new JLabel("1. Para saber si la lista está vacía "));
     grillaCirculares.add(botonesCirculares.get(0));
-    grillaCirculares.add(new JLabel("2. "));
+    grillaCirculares.add(new JLabel("2. Para saber el tamaño de la lista "));
     grillaCirculares.add(botonesCirculares.get(1));
-    grillaCirculares.add(new JLabel("3. "));
+    grillaCirculares.add(new JLabel("3. Para insertar un dato a la lista"));
     grillaCirculares.add(botonesCirculares.get(2));
-    grillaCirculares.add(new JLabel("4. "));
+    grillaCirculares.add(new JLabel("4. Para definir el grado del polinomio"));
     grillaCirculares.add(botonesCirculares.get(3));
-    grillaCirculares.add(new JLabel("5. "));
+    grillaCirculares.add(new JLabel("5. Para mostrar el polinomio"));
     grillaCirculares.add(botonesCirculares.get(4));
-    grillaCirculares.add(new JLabel("6. "));
+    grillaCirculares.add(new JLabel("6. Para operar el polinomio "));
     grillaCirculares.add(botonesCirculares.get(5));
 
     panelCirculares = new JPanel(new BorderLayout());
@@ -82,25 +82,25 @@ public class Vista extends JFrame implements ActionListener{
 
     //Ejercicio Enlazadas
     grillaEnlazadas = new JPanel(new GridLayout(10,2));
-    grillaEnlazadas.add(new JLabel("1. "));
+    grillaEnlazadas.add(new JLabel("1. Para insertar dato a la lista "));
     grillaEnlazadas.add(botonesEnlazadas.get(0));
-    grillaEnlazadas.add(new JLabel("2. "));
+    grillaEnlazadas.add(new JLabel("2. Para mostrar lista "));
     grillaEnlazadas.add(botonesEnlazadas.get(1));
-    grillaEnlazadas.add(new JLabel("3. "));
+    grillaEnlazadas.add(new JLabel("3. ¿Lista vacía?  "));
     grillaEnlazadas.add(botonesEnlazadas.get(2));
-    grillaEnlazadas.add(new JLabel("4. "));
+    grillaEnlazadas.add(new JLabel("4. Para borrar el primer dato"));
     grillaEnlazadas.add(botonesEnlazadas.get(3));
-    grillaEnlazadas.add(new JLabel("5. "));
+    grillaEnlazadas.add(new JLabel("5. Retorna un dato dada su posición"));
     grillaEnlazadas.add(botonesEnlazadas.get(4));
-    grillaEnlazadas.add(new JLabel("6. "));
+    grillaEnlazadas.add(new JLabel("6. Para borrar el último dato"));
     grillaEnlazadas.add(botonesEnlazadas.get(5));
-    grillaEnlazadas.add(new JLabel("7. "));
+    grillaEnlazadas.add(new JLabel("7. Para calcular el tamaño de la lista"));
     grillaEnlazadas.add(botonesEnlazadas.get(6));
-    grillaEnlazadas.add(new JLabel("8. "));
+    grillaEnlazadas.add(new JLabel("8. Para fraccionar la lista"));
     grillaEnlazadas.add(botonesEnlazadas.get(7));
-    grillaEnlazadas.add(new JLabel("9. "));
+    grillaEnlazadas.add(new JLabel("9. Concatena un par de listas"));
     grillaEnlazadas.add(botonesEnlazadas.get(8));
-    grillaEnlazadas.add(new JLabel("10. "));
+    grillaEnlazadas.add(new JLabel("10. Eliminar dado pos"));
     grillaEnlazadas.add(botonesEnlazadas.get(9));
 
     panelEnlazadas = new JPanel(new BorderLayout());
@@ -111,17 +111,17 @@ public class Vista extends JFrame implements ActionListener{
 
     //Ejercicio Pilas
     grillaPilas = new JPanel(new GridLayout(6,2));
-    grillaPilas.add(new JLabel("1. "));
+    grillaPilas.add(new JLabel("1. Para apilar un valor"));
     grillaPilas.add(botonesPilas.get(0));
-    grillaPilas.add(new JLabel("2. "));
+    grillaPilas.add(new JLabel("2. Para mostrar la pila"));
     grillaPilas.add(botonesPilas.get(1));
-    grillaPilas.add(new JLabel("3. "));
+    grillaPilas.add(new JLabel("3. Para eliminar la pila"));
     grillaPilas.add(botonesPilas.get(2));
-    grillaPilas.add(new JLabel("4. "));
+    grillaPilas.add(new JLabel("4. Para ver la cima de la pila"));
     grillaPilas.add(botonesPilas.get(3));
-    grillaPilas.add(new JLabel("5. "));
+    grillaPilas.add(new JLabel("5. Para saber si la pila está vacía"));
     grillaPilas.add(botonesPilas.get(4));
-    grillaPilas.add(new JLabel("6. "));
+    grillaPilas.add(new JLabel("6. Para desapilar"));
     grillaPilas.add(botonesPilas.get(5));
 
     panelPilas = new JPanel(new BorderLayout());
@@ -139,10 +139,71 @@ public class Vista extends JFrame implements ActionListener{
   }
 
   public void actionPerformed(ActionEvent e) {
-    //if(e.getSource()==buttonInit){
-      //game.playGame();
-      //areaResultados.setText(game.getResult());
-      //game = new JuegoAtp ();
-    //}
+    if(e.getSource()==botonesCirculares.get(0)){
+      JOptionPane.showMessageDialog(null, "1 xyz");
+    }
+    if(e.getSource()==botonesCirculares.get(1)){
+      JOptionPane.showMessageDialog(null, "2 xyz");
+    }
+    if(e.getSource()==botonesCirculares.get(2)){
+      JOptionPane.showMessageDialog(null, "3 xyz");
+    }
+    if(e.getSource()==botonesCirculares.get(3)){
+      JOptionPane.showMessageDialog(null, "4 xyz");
+    }
+    if(e.getSource()==botonesCirculares.get(4)){
+      JOptionPane.showMessageDialog(null, "5 xyz");
+    }
+    if(e.getSource()==botonesCirculares.get(5)){
+      JOptionPane.showMessageDialog(null, "6 xyz");
+    }
+    if(e.getSource()==botonesEnlazadas.get(0)){
+      JOptionPane.showMessageDialog(null, "1 xyz");
+    }
+    if(e.getSource()==botonesEnlazadas.get(1)){
+      JOptionPane.showMessageDialog(null, "2 xyz");
+    }
+    if(e.getSource()==botonesEnlazadas.get(2)){
+      JOptionPane.showMessageDialog(null, "3 xyz");
+    }
+    if(e.getSource()==botonesEnlazadas.get(3)){
+      JOptionPane.showMessageDialog(null, "4. xyz");
+    }
+    if(e.getSource()==botonesEnlazadas.get(4)){
+      JOptionPane.showMessageDialog(null, "5. xyz");
+    }
+    if(e.getSource()==botonesEnlazadas.get(5)){
+      JOptionPane.showMessageDialog(null, "6. xyz");
+    }
+    if(e.getSource()==botonesEnlazadas.get(6)){
+      JOptionPane.showMessageDialog(null, "7. xyz");
+    }
+    if(e.getSource()==botonesEnlazadas.get(7)){
+      JOptionPane.showMessageDialog(null, "8. xyz");
+    }
+    if(e.getSource()==botonesEnlazadas.get(8)){
+      JOptionPane.showMessageDialog(null, "9. xyz");
+    }
+    if(e.getSource()==botonesEnlazadas.get(9)){
+      JOptionPane.showMessageDialog(null, "10. xyz");
+    }
+    if(e.getSource()==botonesPilas.get(0)){
+      JOptionPane.showMessageDialog(null, "1 xyz");
+    }
+    if(e.getSource()==botonesPilas.get(1)){
+      JOptionPane.showMessageDialog(null, "2 xyz");
+    }
+    if(e.getSource()==botonesPilas.get(2)){
+      JOptionPane.showMessageDialog(null, "3 xyz");
+    }
+    if(e.getSource()==botonesPilas.get(3)){
+      JOptionPane.showMessageDialog(null, "4 xyz");
+    }
+    if(e.getSource()==botonesPilas.get(4)){
+      JOptionPane.showMessageDialog(null, "5 xyz");
+    }
+    if(e.getSource()==botonesPilas.get(5)){
+      JOptionPane.showMessageDialog(null, "6 xyz");
+    }
   }
 }
