@@ -140,19 +140,27 @@ public class Vista extends JFrame implements ActionListener{
 
   public void actionPerformed(ActionEvent e) {
     if(e.getSource()==botonesCirculares.get(0)){
-      JOptionPane.showMessageDialog(null, "Vacía?", listaC.vacia(), JOptionPane.PLAIN_MESSAGE);
+      JOptionPane.showMessageDialog(null, ""+listaC.vacia(), "Vacía?", JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesCirculares.get(1)){
-      JOptionPane.showMessageDialog(null, "Tamaño Lista", listaC.calcularTamano(), JOptionPane.PLAIN_MESSAGE);
+      JOptionPane.showMessageDialog(null, "Tamaño: "+listaC.calcularTamano(), "Tamaño Lista", JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesCirculares.get(2)){
-      JOptionPane.showMessageDialog(null, "3 xyz");
+
+      if (listaC.calcularTamano() <= listaC.grado) {
+        int i = Integer.parseInt(JOptionPane.showInputDialog("Insertar Dato a la lista"));
+        listaC.insertar(i);
+      } else
+        JOptionPane.showMessageDialog(null, "No es posible ingresar más coeficientes al polinomio");
     }
     if(e.getSource()==botonesCirculares.get(3)){
-      JOptionPane.showMessageDialog(null, "4 xyz");
+
+      int num = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el grado del polinomio: "));
+      listaC.definirGrado(num);
+      JOptionPane.showMessageDialog(null, "Grado del Polinomio = " + listaC.grado);
     }
     if(e.getSource()==botonesCirculares.get(4)){
-      JOptionPane.showMessageDialog(null, "5 xyz");
+      JOptionPane.showMessageDialog(null, "Polinomio: "+ listaC.imprimir());
     }
     if(e.getSource()==botonesCirculares.get(5)){
       JOptionPane.showMessageDialog(null, "6 xyz");
