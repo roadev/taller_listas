@@ -131,11 +131,27 @@ public class Vista extends JFrame implements ActionListener{
     panelPilas.add(grillaPilas, BorderLayout.CENTER);
 
     //General
+    tabs.addTab("Listas Enlazadas", panelEnlazadas);
     tabs.addTab("Listas Circulares", panelCirculares);
-    //tabs.addTab("Listas Enlazadas", panelEnlazadas);
     tabs.addTab("Pilas", panelPilas);
 
     contenedor.add(tabs,BorderLayout.CENTER);
+  }
+
+  public String fraccionarLista(int a) {
+
+    String msj = "";
+
+    if (! listaE.vacia()) {
+      ListaEnlazada menores = listaE.selectMenores(a);
+      ListaEnlazada mayores_ig = listaE.selectMayores(a);
+      msj+="Menores = "+menores.listar()+"\n";
+      msj+="Mayores = "+mayores_ig.listar();
+    }else{
+      msj="No se puede dividir una lista vacía";
+    }
+
+    return msj;
   }
 
   public void actionPerformed(ActionEvent e) {
@@ -173,34 +189,41 @@ public class Vista extends JFrame implements ActionListener{
       
     }
     if(e.getSource()==botonesEnlazadas.get(0)){
-      JOptionPane.showMessageDialog(null, "1 xyz");
+      int num = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el dato deseado:"));
+      listaE.insertarDato(num);
     }
     if(e.getSource()==botonesEnlazadas.get(1)){
-      JOptionPane.showMessageDialog(null, "2 xyz");
+      JOptionPane.showMessageDialog(null, ""+listaE.listar(), "Imprimir", JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesEnlazadas.get(2)){
-      JOptionPane.showMessageDialog(null, "3 xyz");
+      JOptionPane.showMessageDialog(null, ""+listaE.vacia(), "Vacía?", JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesEnlazadas.get(3)){
-      JOptionPane.showMessageDialog(null, "4. xyz");
+      listaE.borrarPrimero();
+      JOptionPane.showMessageDialog(null, "Se ha borrado el primer elemento.", "Borrar Primero", JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesEnlazadas.get(4)){
-      JOptionPane.showMessageDialog(null, "5. xyz");
+      int pos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posición:"));
+      JOptionPane.showMessageDialog(null, ""+listaE.buscarPosicion(pos), "Buscar dado posición", JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesEnlazadas.get(5)){
-      JOptionPane.showMessageDialog(null, "6. xyz");
+      listaE.borrarUltimo();
     }
     if(e.getSource()==botonesEnlazadas.get(6)){
-      JOptionPane.showMessageDialog(null, "7. xyz");
+      JOptionPane.showMessageDialog(null, ""+listaE.calcularTamano(), "Tamaño", JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesEnlazadas.get(7)){
-      JOptionPane.showMessageDialog(null, "8. xyz");
+      int num = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el dato para fraccionar la lista"));
+      //JOptionPane.showMessageDialog(null, ""+listaE.fraccionarLista(num), "Resultado", JOptionPane.PLAIN_MESSAGE);
+      System.out.println("Resultado:\n" + fraccionarLista(num));
     }
     if(e.getSource()==botonesEnlazadas.get(8)){
-      JOptionPane.showMessageDialog(null, "9. xyz");
+      JOptionPane.showMessageDialog(null, "9. Submenú");
     }
     if(e.getSource()==botonesEnlazadas.get(9)){
-      JOptionPane.showMessageDialog(null, "10. xyz");
+      int pos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese pos a eliminar:"));
+      listaE.eliminarWhitPos(pos);
+      JOptionPane.showMessageDialog(null, ""+listaE.listar(), "Lista Principal", JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesPilas.get(0)){
       int x = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número a apilar Apilar"));
