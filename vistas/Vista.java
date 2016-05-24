@@ -16,15 +16,18 @@ public class Vista extends JFrame implements ActionListener{
   JPanel panelCirculares, panelEnlazadas, panelPilas;
   JPanel grillaCirculares, grillaEnlazadas, grillaPilas;
   ArrayList<JButton> botonesCirculares, botonesEnlazadas, botonesPilas;
+  VistaAuxEnlazadas vistaAux;
   //
   ListaC listaC;
-  ListaEnlazada listaE;
+  ListaEnlazada listaE, listaE2;
   Pila pila; 
 
   public Vista () {
     listaC = new ListaC();
     listaE = new ListaEnlazada();
+    listaE2 = new ListaEnlazada();
     pila = new Pila();
+    //vistaAux = new VistaAuxEnlazadas(this, "");
 
     botonesCirculares = new ArrayList<JButton>();
     botonesEnlazadas = new ArrayList<JButton>();
@@ -154,7 +157,30 @@ public class Vista extends JFrame implements ActionListener{
     return msj;
   }
 
+  public ListaEnlazada concatenarListas () {
+    ListaEnlazada nuevaLista = new ListaEnlazada();
+    if (!listaE.vacia()) {
+      nuevaLista = listaE;
+
+      if (!listaE2.vacia()) {
+        Nodo auxPpal = nuevaLista.primero;
+        Nodo auxL2 = listaE2.primero;
+        while(auxPpal.siguiente != null) {
+          auxPpal=auxPpal.siguiente;
+        }
+        auxPpal.siguiente = auxL2;
+      }
+    } else {
+      if ((!listaE2.vacia())) {
+        nuevaLista = listaE2;
+      }
+    }
+
+    return nuevaLista;
+  }
+
   public void actionPerformed(ActionEvent e) {
+    // Eventos Listas Circulares
     if(e.getSource()==botonesCirculares.get(0)){
       JOptionPane.showMessageDialog(null, ""+listaC.vacia(), "Vacía?", JOptionPane.PLAIN_MESSAGE);
     }
@@ -188,6 +214,8 @@ public class Vista extends JFrame implements ActionListener{
       }
       
     }
+
+    // Eventos Listas Enlazadas
     if(e.getSource()==botonesEnlazadas.get(0)){
       int num = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el dato deseado:"));
       listaE.insertarDato(num);
@@ -200,7 +228,6 @@ public class Vista extends JFrame implements ActionListener{
     }
     if(e.getSource()==botonesEnlazadas.get(3)){
       listaE.borrarPrimero();
-      JOptionPane.showMessageDialog(null, "Se ha borrado el primer elemento.", "Borrar Primero", JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesEnlazadas.get(4)){
       int pos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posición:"));
@@ -208,7 +235,6 @@ public class Vista extends JFrame implements ActionListener{
     }
     if(e.getSource()==botonesEnlazadas.get(5)){
       listaE.borrarUltimo();
-      JOptionPane.showMessageDialog(null, "Se ha borrado el último elemento.", "Borrar Último", JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesEnlazadas.get(6)){
       JOptionPane.showMessageDialog(null, ""+listaE.calcularTamano(), "Tamaño", JOptionPane.PLAIN_MESSAGE);
@@ -218,13 +244,18 @@ public class Vista extends JFrame implements ActionListener{
       JOptionPane.showMessageDialog(null, ""+fraccionarLista(num), "Resultado ("+num+")", JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesEnlazadas.get(8)){
-      JOptionPane.showMessageDialog(null, "9. Submenú");
+      vistaAux = new VistaAuxEnlazadas(this, "Vista Auxiliar Enlazadas", true);
+      listaE2 = vistaAux.getListaEnlazada();
+      ListaEnlazada aux = concatenarListas();
+      JOptionPane.showMessageDialog(null, ""+aux.listar(), "Lista Concatenados", JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesEnlazadas.get(9)){
       int pos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese pos a eliminar:"));
       listaE.eliminarWhitPos(pos);
       JOptionPane.showMessageDialog(null, ""+listaE.listar(), "Lista Principal", JOptionPane.PLAIN_MESSAGE);
     }
+
+    // Eventos Pilas
     if(e.getSource()==botonesPilas.get(0)){
       int x = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número a apilar Apilar"));
       //int x = Integer.parseInt(JOptionPane.showMessageDialog(null, "Ingrese el número a apilar Apilar"));
