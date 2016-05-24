@@ -146,7 +146,7 @@ public class Vista extends JFrame implements ActionListener{
       ListaEnlazada menores = listaE.selectMenores(a);
       ListaEnlazada mayores_ig = listaE.selectMayores(a);
       msj+="Menores = "+menores.listar()+"\n";
-      msj+="Mayores = "+mayores_ig.listar();
+      msj+="Mayores o Iguales = "+mayores_ig.listar();
     }else{
       msj="No se puede dividir una lista vacía";
     }
@@ -208,14 +208,14 @@ public class Vista extends JFrame implements ActionListener{
     }
     if(e.getSource()==botonesEnlazadas.get(5)){
       listaE.borrarUltimo();
+      JOptionPane.showMessageDialog(null, "Se ha borrado el último elemento.", "Borrar Último", JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesEnlazadas.get(6)){
       JOptionPane.showMessageDialog(null, ""+listaE.calcularTamano(), "Tamaño", JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesEnlazadas.get(7)){
       int num = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el dato para fraccionar la lista"));
-      //JOptionPane.showMessageDialog(null, ""+listaE.fraccionarLista(num), "Resultado", JOptionPane.PLAIN_MESSAGE);
-      System.out.println("Resultado:\n" + fraccionarLista(num));
+      JOptionPane.showMessageDialog(null, ""+fraccionarLista(num), "Resultado ("+num+")", JOptionPane.PLAIN_MESSAGE);
     }
     if(e.getSource()==botonesEnlazadas.get(8)){
       JOptionPane.showMessageDialog(null, "9. Submenú");

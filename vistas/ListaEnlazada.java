@@ -87,9 +87,20 @@ public class ListaEnlazada{
 
   public void insertarDato(int dato) {
 
-    Nodo temporal = new Nodo(dato);
-    temporal.siguiente = primero;
-    primero = temporal;
+    Nodo aux = primero;
+    Nodo nuevo = new Nodo(dato);
+
+    //nuevo.siguiente = primero;
+    //primero = nuevo;
+
+    if (vacia()){
+      primero = nuevo;
+    }else{
+      while (aux.siguiente != null) {
+        aux = aux.siguiente;
+      }
+      aux.siguiente = nuevo;
+    }
 
   }
 
